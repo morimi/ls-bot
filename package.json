@@ -1,0 +1,47 @@
+{
+  "name": "ls-bot-monorepo",
+  "version": "1.0.0",
+  "description": "IDOLY PRIDE公式サイト用のチャットボットシステム（モノレポ構成）",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev:frontend",
+    "dev:frontend": "npm run dev --workspace=@ls-bot/frontend",
+    "dev:backend": "cd apps/backend && python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000",
+    "dev:all": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "build": "npm run build --workspace=@ls-bot/frontend",
+    "build:frontend": "npm run build --workspace=@ls-bot/frontend",
+    "lint": "npm run lint --workspace=@ls-bot/frontend",
+    "lint:all": "npm run lint --workspaces --if-present",
+    "type-check": "npm run type-check --workspaces --if-present",
+    "clean": "npm run clean --workspaces --if-present && rm -rf node_modules",
+    "install:backend": "cd apps/backend && pip install -r requirements.txt",
+    "setup": "npm install && npm run install:backend",
+    "test": "npm run test --workspaces --if-present"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "@types/node": "^20.11.5"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "keywords": [
+    "monorepo",
+    "chatbot",
+    "react",
+    "fastapi",
+    "typescript",
+    "python"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/ls-bot.git"
+  },
+  "license": "MIT",
+  "author": "LS-BOT Development Team"
+}

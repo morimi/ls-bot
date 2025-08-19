@@ -1,0 +1,208 @@
+# =====================================
+# LS-BOT モノレポ用 .gitignore
+# =====================================
+
+# ===== Node.js関連 =====
+# 依存関係
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# パッケージロックファイル（npm使用のため、yarnとpnpmは除外）
+yarn.lock
+pnpm-lock.yaml
+
+# ===== ビルド成果物 =====
+# フロントエンドビルド
+apps/frontend/dist/
+apps/frontend/build/
+
+# 共有パッケージビルド
+packages/*/dist/
+packages/*/build/
+
+# TypeScriptビルド情報
+*.tsbuildinfo
+.tmp/
+
+# ===== 開発ツール関連 =====
+# Vite
+apps/frontend/.vite/
+apps/frontend/vite.config.*.timestamp-*
+
+# ESLint
+.eslintcache
+
+# IDE・エディタ
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ===== Python/バックエンド関連 =====
+# Python仮想環境
+apps/backend/venv/
+apps/backend/.venv/
+apps/backend/env/
+apps/backend/.env/
+
+# Pythonキャッシュ
+apps/backend/__pycache__/
+apps/backend/*.py[cod]
+apps/backend/*$py.class
+apps/backend/*.so
+
+# Python配布
+apps/backend/dist/
+apps/backend/build/
+apps/backend/*.egg-info/
+
+# pytest
+apps/backend/.pytest_cache/
+apps/backend/.coverage
+
+# mypy
+apps/backend/.mypy_cache/
+apps/backend/.dmypy.json
+apps/backend/dmypy.json
+
+# ===== データベース関連 =====
+# ChromaDB
+apps/backend/chromadb_store/
+apps/backend/data_loader/chromadb_store/
+*.sqlite3
+*.db
+
+# その他のデータベースファイル
+*.sqlite
+*.sqlite3-journal
+
+# ===== ログファイル =====
+# アプリケーションログ
+apps/backend/logs/
+apps/backend/*.log
+apps/frontend/*.log
+
+# システムログ
+*.log
+logs/
+
+# ===== 環境設定ファイル =====
+# 環境変数
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# API キー（万が一の場合に備えて）
+**/config/secrets.json
+**/config/api-keys.json
+
+# ===== 一時ファイル =====
+# OS生成の一時ファイル
+*.tmp
+*.temp
+.cache/
+
+# アプリケーション一時ファイル
+temp/
+tmp/
+
+# ===== テスト関連 =====
+# テストカバレッジ
+coverage/
+.nyc_output/
+
+# テスト結果
+test-results/
+playwright-report/
+test-results.xml
+
+# ===== デプロイ・CI/CD関連 =====
+# Vercel
+.vercel
+
+# Docker
+.dockerignore
+
+# CI/CD一時ファイル
+.github/secrets/
+
+# ===== プロジェクト固有 =====
+# スクレイピングデータ（大容量の場合）
+apps/backend/scraped_data/
+apps/backend/raw_data/
+
+# 機械学習モデル
+apps/backend/models/*.pkl
+apps/backend/models/*.model
+
+# データ処理中間ファイル
+apps/backend/data_loader/*.json.bak
+apps/backend/data_loader/processed_*.json
+
+# ===== 開発用一時ファイル =====
+# TODO一覧の一時ファイル
+TODO.md
+NOTES.md
+scratch.txt
+
+# プルリクエスト用一時ファイル
+.cursor_pr_body.md
+
+# ===== バックアップファイル =====
+# 自動バックアップ
+*.bak
+*.backup
+*.old
+
+# Git関連
+*.orig
+
+# ===== 特別なケース =====
+# 大きなメディアファイル（万が一追加された場合）
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.mp3
+*.wav
+*.flac
+
+# アーカイブファイル
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# ===== パフォーマンス測定 =====
+# ベンチマーク結果
+benchmark-results/
+performance-logs/
+
+# ===== セキュリティ関連 =====
+# SSL証明書
+*.pem
+*.key
+*.crt
+*.csr
+
+# ===== 最終確認 =====
+# 念のため、重要な設定ファイルをコメントアウト
+# （必要に応じてコメント解除）
+# package-lock.json
+# apps/frontend/package-lock.json

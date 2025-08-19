@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+chromadb
+openai
+beautifulsoup4
+pydantic
+httpx
+python-dotenv 
